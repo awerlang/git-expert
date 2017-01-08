@@ -1,13 +1,13 @@
 <h1>Git Expert</h1>
 
 Topic:
-<md-chip-list>
-  <md-chip *ngFor="let topic of topics" (select)="onTopicSelected(topic)">{{topic}}</md-chip>
+<md-chip-list #list1>
+  <md-chip #chip *ngFor="let topic of topics" (select)="onTopicSelected(topic)" (click)="onChipClicked(list1, chip)">{{topic}}</md-chip>
 </md-chip-list>
 
 Action:
-<md-chip-list>
-  <md-chip *ngFor="let action of actions" (select)="onActionSelected(action)">{{action}}</md-chip>
+<md-chip-list #list2>
+  <md-chip #chip *ngFor="let action of actions" (select)="onActionSelected(action)" (click)="onChipClicked(list2, chip)">{{action}}</md-chip>
 </md-chip-list>
 
 <button class="go" md-button color="primary" (click)="onGoClick()">Go!</button>

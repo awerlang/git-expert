@@ -1,5 +1,5 @@
 import { Component, trigger, state, style, transition, animate } from '@angular/core';
-import { MdChip } from '@angular/material';
+import { MdChip, MdChipList } from '@angular/material';
 
 import { TipsService, Tip } from './tips.service';
 
@@ -34,6 +34,15 @@ export class AppComponent {
   private selectedAction: string;
   onActionSelected(action: string) {
     this.selectedAction = action;
+  }
+
+  onChipClicked(list: MdChipList, chip: MdChip) {
+    list.chips
+      .filter(item => item.selected && item !== chip)
+      .forEach(item => {
+        item.selected = false;
+      });
+    chip.toggleSelected();
   }
 
   matchingTips: Tip[];
