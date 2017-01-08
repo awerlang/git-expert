@@ -1,3 +1,23 @@
-<h1>
-  {{title}}
-</h1>
+<h1>Git Expert</h1>
+
+Topic:
+<md-chip-list>
+  <md-chip *ngFor="let topic of topics" (select)="onTopicSelected(topic)">{{topic}}</md-chip>
+</md-chip-list>
+
+Action:
+<md-chip-list>
+  <md-chip *ngFor="let action of actions" (select)="onActionSelected(action)">{{action}}</md-chip>
+</md-chip-list>
+
+<button md-button color="primary" (click)="onGoClick()">Go!</button>
+
+<md-divider></md-divider>
+
+<md-list *ngIf="matchingTips">
+  <h2 md-subheader>Results</h2>
+  <md-list-item *ngFor="let match of matchingTips">
+    <h4 md-line>{{match.title}}</h4>
+    <pre md-line><code>{{match.command}}</code></pre>
+  </md-list-item>
+</md-list>
