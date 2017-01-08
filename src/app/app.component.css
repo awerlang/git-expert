@@ -1,0 +1,14 @@
+:host {
+    display: block;
+    max-width: 500px;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+.go {
+    margin-top: 8px;
+    float: right;
+}
+
+md-divider {
+    clear: both;
+}

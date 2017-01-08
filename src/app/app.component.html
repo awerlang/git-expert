@@ -10,7 +10,7 @@ Action:
   <md-chip *ngFor="let action of actions" (select)="onActionSelected(action)">{{action}}</md-chip>
 </md-chip-list>
 
-<button md-button color="primary" (click)="onGoClick()">Go!</button>
+<button class="go" md-button color="primary" (click)="onGoClick()">Go!</button>
 
 <md-divider></md-divider>
 
@@ -20,4 +20,4 @@ Action:
     <h4 md-line>{{match.title}}</h4>
     <pre md-line><code>{{match.command}}</code></pre>
   </md-list-item>
-</md-list>
+</md-list> 
