@@ -43,9 +43,17 @@ export class AppComponent {
         item.selected = false;
       });
     chip.toggleSelected();
+
+    this.matchingTips = null;
   }
 
-  matchingTips: Tip[];
+  messageMapping = {
+    '=0': 'No results',
+    '=1': 'One tip found',
+    'other': 'Found # tips',
+  };
+
+  matchingTips: Tip[] = null;
   onGoClick() {
     this.matchingTips = this.tips.match(this.selectedTopic, this.selectedAction);
   }

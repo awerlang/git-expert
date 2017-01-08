@@ -16,8 +16,11 @@ Action:
 
 <md-list *ngIf="matchingTips">
   <h2 md-subheader>Results</h2>
+  <md-list-item>
+    <h4 md-line>{{matchingTips.length | i18nPlural: messageMapping}}</h4>
+  </md-list-item>
   <md-list-item *ngFor="let match of matchingTips" [@flyInOut]="'in'">
     <h4 md-line>{{match.title}}</h4>
     <pre md-line><code>{{match.command}}</code></pre>
   </md-list-item>
-</md-list> 
+</md-list>
