@@ -12,3 +12,7 @@
 md-divider {
     clear: both;
 }
+
+md-chip {
+    cursor: default;
+}
