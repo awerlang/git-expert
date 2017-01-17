@@ -18,8 +18,10 @@ const tipsService = {
   },
 
   match(topic, action) {
-    if (!topic || !action) return [];
-    
+    if (!topic || !action) {
+      return [];
+    }
+
     return [
       {
         topic: 'changes',
@@ -55,14 +57,16 @@ describe('AppComponent', () => {
     let fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     let compiled = fixture.debugElement.nativeElement;
-    expect([].map.call(compiled.querySelectorAll('.topics md-chip'), it => it.textContent)).toEqual(['changes', 'branches', 'commits', 'remotes']);
+    expect([].map.call(compiled.querySelectorAll('.topics md-chip'), it => it.textContent))
+      .toEqual(['changes', 'branches', 'commits', 'remotes']);
   }));
 
   it('should render actions', async(() => {
     let fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     let compiled = fixture.debugElement.nativeElement;
-    expect([].map.call(compiled.querySelectorAll('.actions md-chip'), it => it.textContent)).toEqual(['revert', 'add', 'delete', 'list', 'merge', 'update']);
+    expect([].map.call(compiled.querySelectorAll('.actions md-chip'), it => it.textContent))
+      .toEqual(['revert', 'add', 'delete', 'list', 'merge', 'update']);
   }));
 
   describe('Go!', () => {
@@ -88,7 +92,7 @@ describe('AppComponent', () => {
 
     it('should render results', async(() => {
       const topicChip: DebugElement = fixture.debugElement.query(By.css('.topics')).query(By.directive(MdChip));
-      const actionChip: DebugElement = fixture.debugElement.query(By.css('.actions')).query(By.directive(MdChip));;
+      const actionChip: DebugElement = fixture.debugElement.query(By.css('.actions')).query(By.directive(MdChip));
 
       topicChip.triggerEventHandler('click', null);
       actionChip.triggerEventHandler('click', null);

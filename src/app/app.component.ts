@@ -9,29 +9,37 @@ import { TipsService, Tip } from './tips.service';
   styleUrls: ['./app.component.css'],
   animations: [
     trigger('flyInOut', [
-      state('in', style({transform: 'translateX(0)'})),
+      state('in', style({ transform: 'translateX(0)' })),
       transition('void => *', [
-        style({transform: 'translateX(-100%)'}),
+        style({ transform: 'translateX(-100%)' }),
         animate(100)
       ]),
       transition('* => void', [
-        animate(100, style({transform: 'translateX(100%)'}))
+        animate(100, style({ transform: 'translateX(100%)' }))
       ])
     ])
   ]
 })
 export class AppComponent {
-  constructor(private tips: TipsService) { }
-
   topics: string[] = this.tips.getTopics();
   actions: string[] = this.tips.getActions();
 
   private selectedTopic: string;
+  private selectedAction: string;
+  matchingTips: Tip[] = null;
+
+  messageMapping = {
+    '=0': 'No results',
+    '=1': 'One tip found',
+    'other': 'Found # tips',
+  };
+
+  constructor(private tips: TipsService) { }
+
   onTopicSelected(topic: string) {
     this.selectedTopic = topic;
   }
 
-  private selectedAction: string;
   onActionSelected(action: string) {
     this.selectedAction = action;
   }
@@ -47,13 +55,6 @@ export class AppComponent {
     this.matchingTips = null;
   }
 
-  messageMapping = {
-    '=0': 'No results',
-    '=1': 'One tip found',
-    'other': 'Found # tips',
-  };
-
-  matchingTips: Tip[] = null;
   onGoClick() {
     this.matchingTips = this.tips.match(this.selectedTopic, this.selectedAction);
   }
