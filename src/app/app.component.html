@@ -1,12 +1,12 @@
 <h1>Git Expert</h1>
 
 Topic:
-<md-chip-list #list1>
+<md-chip-list #list1 class="topics">
   <md-chip #chip *ngFor="let topic of topics" (select)="onTopicSelected(topic)" (click)="onChipClicked(list1, chip)">{{topic}}</md-chip>
 </md-chip-list>
 
 Action:
-<md-chip-list #list2>
+<md-chip-list #list2 class="actions">
   <md-chip #chip *ngFor="let action of actions" (select)="onActionSelected(action)" (click)="onChipClicked(list2, chip)">{{action}}</md-chip>
 </md-chip-list>
 

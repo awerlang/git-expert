@@ -88,7 +88,7 @@ const tips = [
 @Injectable()
 export class TipsService {
 
-    getDistinct(mapFn: (item: Tip) => string) {
+    private getDistinct(mapFn: (item: Tip) => string) {
         return tips.map(mapFn).filter((value, index, array) => array.indexOf(value) === index);
     }
 
